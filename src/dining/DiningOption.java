@@ -2,13 +2,20 @@ package dining;
 
 import java.util.Scanner;
 
+/**
+ * Provides utility methods to prompt and retrieve the user's dining preference.
+ */
 public class DiningOption {
 
-    public static String choose(
-            Scanner scanner) {
+    /**
+     * Prompts the user to select between Dine-in or Takeout and returns the chosen option.
+     */
+    public static String choose(Scanner scanner) {
 
+        // Keep looping until a valid option is selected
         while (true) {
 
+            // Display order type menu
             System.out.println(
                 "\n========== ORDER TYPE =========="
             );
@@ -18,8 +25,10 @@ public class DiningOption {
 
             System.out.print("Choose: ");
 
+            // Read user choice
             int choice = scanner.nextInt();
 
+            // Validate and return the matching dining option
             if (choice == 1) {
 
                 return "Dine-in";

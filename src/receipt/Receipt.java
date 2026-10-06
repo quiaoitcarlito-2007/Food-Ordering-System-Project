@@ -3,8 +3,15 @@ package receipt;
 import order.FoodOrder;
 import food.Food;
 
+/**
+ * Handles generating and displaying the final transaction receipt for an order.
+ */
 public class Receipt {
 
+    /**
+     * Prints a formatted receipt displaying order details, item breakdown, 
+     * pricing totals, discount, payment amount, and change due.
+     */
     public static void print(
             FoodOrder order,
             int orderNumber,
@@ -14,6 +21,7 @@ public class Receipt {
             double total,
             double payment) {
 
+        // Calculate change due to customer
         double change = payment - total;
 
         System.out.println("\n");
@@ -29,6 +37,7 @@ public class Receipt {
             "======================================"
         );
 
+        // Display order metadata
         System.out.println(
             "Order Number: " + orderNumber
         );
@@ -37,6 +46,7 @@ public class Receipt {
             "Order Type: " + diningOption
         );
 
+        // Display table number if customer chose Dine-in
         if (diningOption.equals("Dine-in")) {
 
             System.out.println(
@@ -48,6 +58,7 @@ public class Receipt {
             "--------------------------------------"
         );
 
+        // Iterate through and print each ordered item with quantity and line total
         for (int i = 0;
              i < order.getFoods().size();
              i++) {
@@ -72,6 +83,7 @@ public class Receipt {
             "--------------------------------------"
         );
 
+        // Display summary financial totals
         System.out.println(
             "Subtotal: $" +
             order.getSubtotal()
